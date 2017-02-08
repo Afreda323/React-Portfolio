@@ -9,9 +9,9 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      rendered: 'Work',
+      rendered: 'Home',
       animClass: 'forwards',
-      activeNav: 'work',
+      activeNav: 'home',
       //passed down for animation of projects
       clicked: false,
       hideNav: false
