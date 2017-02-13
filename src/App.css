@@ -42,6 +42,7 @@ table {
 }
 
 body {
+    background: white;
     background-image: url('bg.png');
 }
 
@@ -61,11 +62,18 @@ hr {
     color: #0004ff;
 }
 
-h1, h2, h3, .btn, a {
+h1,
+h2,
+h3,
+.btn,
+a {
     font-family: 'Poiret One', sans-serif;
 }
 
-p, ul, li a {
+p,
+ul,
+li
+a {
     font-family: 'Raleway', sans-serif;
 }
 
@@ -87,7 +95,9 @@ h3 {
     font-size: 3.3em
 }
 
-p, a, li {
+p,
+a,
+li {
     letter-spacing: -.5px;
     line-height: 1.25;
     font-size: 1.3em;
@@ -103,7 +113,10 @@ a {
     padding: 5px;
     font-size: 1.5em;
 }
-
+.caption{
+  position: relative;
+  z-index: 1000;
+}
 .btn {
     position: relative;
     cursor: pointer;
@@ -120,7 +133,8 @@ a {
     text-decoration: none !important;
 }
 
-.btn:hover, .btn:focus {
+.btn:hover,
+.btn:focus {
     -webkit-text-stroke: 1px rgb(0, 4, 255);
     color: rgb(0, 4, 255) !important;
     background: white;
@@ -130,6 +144,7 @@ a {
 /*NAV*/
 
 .nav {
+  opacity: .8;
     position: absolute;
     z-index: 1111;
     top: 0;
@@ -143,6 +158,7 @@ a {
     background: white;
     box-shadow: 3px 3px 22px -2px rgba(0, 0, 0, 0.75);
     transition: all .4s;
+    opacity: 0;
 }
 
 .nav a {
@@ -162,7 +178,9 @@ a {
     pointer-events: none;
 }
 
-.nav a:hover:after, .nav a:focus:after, .active:after {
+.nav a:hover:after,
+.nav a:focus:after,
+.active:after {
     content: " ";
     width: 100%;
     height: 6px;
@@ -186,20 +204,37 @@ a {
     content: none !important;
 }
 
-
+.git{
+  position: absolute;
+  bottom: 12px;
+  right: 13px;
+  width: 100%;
+  text-align: center;
+}
+.git a{
+  font-size: .8em;
+  display: inline-block;
+  width: 100%;
+  padding: 10px 10px 0 0;
+  text-decoration: none;
+  color: #0004ff;
+}
 /*PAGES*/
 
-.Home, .Contact, .Work {
-    overflow-x: hidden;
+.Home,
+.Contact,
+.Work {
+    overflow: hidden;
     height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    max-height: 100vh;
 }
 
 .wrap {
-    transform: scale(1.1);
+    transform: scale(1);
     box-sizing: border-box;
     position: relative;
     background-color: rgba(255, 255, 255, .20);
@@ -209,9 +244,6 @@ a {
     animation: shadow 2s .2s forwards, float 15s 2.8s infinite linear;
 }
 
-.onSmall {
-    display: none;
-}
 
 .white-fill {
     position: absolute;
@@ -325,11 +357,13 @@ a {
 }
 
 
-.modal p, .modal .btn {
+.modal p,
+.modal .btn {
     font-size: 2em;
 }
 
-.left-div, .right-div {
+.left-div,
+.right-div {
     width: 48%;
 }
 
@@ -347,7 +381,8 @@ a {
 }
 
 @media (max-width: 1000px) {
-    .modal p, .modal .btn {
+    .modal p,
+    .modal .btn {
         font-size: 1.5em;
     }
 }
@@ -356,7 +391,8 @@ a {
     .modal h3 {
         font-size: 3em;
     }
-    .modal p, .modal .btn {
+    .modal p,
+    .modal .btn {
         font-size: 1.3em;
     }
 }
@@ -385,7 +421,8 @@ a {
         margin: 0 5px;
         font-size: 3em;
     }
-    .modal p, .modal .btn {
+    .modal p,
+    .modal .btn {
         margin: 0 5px;
         font-size: 1.3em;
     }
@@ -425,13 +462,15 @@ a {
 
 /*RECTANGLES*/
 
-.top, .bottom {
+.top,
+.bottom {
     position: absolute;
     height: 10px;
     background: #0004ff;
 }
 
-.left, .right {
+.left,
+.right {
     position: absolute;
     width: 10px;
     height: 100%;
@@ -442,7 +481,8 @@ a {
     display: none;
 }
 
-.top-left, .bottom-left {
+.top-left,
+.bottom-left {
     position: absolute;
     width: 10px;
     background: #0004ff;
@@ -489,12 +529,17 @@ a {
     animation: width .5s forwards;
 }
 
-.wrap p, .wrap h1, .wrap h2, .wrap .btn, .wrap hr {
+.wrap p,
+.wrap h1,
+.wrap h2,
+.wrap .btn,
+.wrap hr {
     opacity: 0;
     animation: fade 2s forwards;
 }
 
-.wrap h1, .wrap h2 {
+.wrap h1,
+.wrap h2 {
     opacity: 0;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.71);
     white-space: nowrap;
@@ -527,7 +572,8 @@ a {
     animation: reverse-shadow 1s forwards;
 }
 
-.bottom.reverse, .top.reverse {
+.bottom.reverse,
+.top.reverse {
     animation: reverse-width .5s forwards;
 }
 
@@ -543,7 +589,13 @@ a {
     animation: reverse-height-bl .5s forwards;
 }
 
-h1.reverse, h2.reverse, p.reverse, hr.reverse, .btn.reverse, .reverse.wrap:after, .reverse.wrap:before {
+h1.reverse,
+h2.reverse,
+p.reverse,
+hr.reverse,
+.btn.reverse,
+.reverse.wrap:after,
+.reverse.wrap:before {
     animation: fade-out .5s forwards;
 }
 
@@ -573,8 +625,9 @@ h1.reverse, h2.reverse, p.reverse, hr.reverse, .btn.reverse, .reverse.wrap:after
 
 /*ANIMATIONS AND QUERIES*/
 
-@media (max-width: 600px) {
-    .wrap h1, .wrap h2 {
+@media (max-width: 700px) {
+    .wrap h1,
+    .wrap h2 {
         width: calc(100% + 120px);
         margin-left: 0;
         text-align: left;
@@ -606,7 +659,8 @@ h1.reverse, h2.reverse, p.reverse, hr.reverse, .btn.reverse, .reverse.wrap:after
         font-size: 1.3em;
         font-weight: lighter;
     }
-    .top-left, .bottom-left {
+    .top-left,
+    .bottom-left {
         display: none;
     }
     .left {
@@ -616,7 +670,7 @@ h1.reverse, h2.reverse, p.reverse, hr.reverse, .btn.reverse, .reverse.wrap:after
 
 @keyframes shadow {
     0% {
-        transform: scale(1.1);
+        transform: scale(1);
         box-shadow: none;
     }
     100% {
@@ -731,12 +785,21 @@ h1.reverse, h2.reverse, p.reverse, hr.reverse, .btn.reverse, .reverse.wrap:after
     }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 450px), (max-height: 600px) {
     .wrap {
         animation: shadow 2s .2s forwards;
     }
     .nav {
         display: none;
+    }
+    .Home,
+    .Contact,
+    .Work {
+       padding-top: 20px;
+        overflow: hidden;
+        height: 100vh;
+        width: 100%;
+        overflow-y: scroll;
     }
 }
 
@@ -745,7 +808,7 @@ h1.reverse, h2.reverse, p.reverse, hr.reverse, .btn.reverse, .reverse.wrap:after
         margin-top: 30px;
         max-width: 95%;
         width: 95%;
-        padding: 30px 40px;
+        padding: 30px 40px 50px;
     }
     h1 {
         font-size: 2.6em
@@ -785,7 +848,7 @@ h1.reverse, h2.reverse, p.reverse, hr.reverse, .btn.reverse, .reverse.wrap:after
     }
     100% {
         box-shadow: none;
-        transform: scale(.95);
+        transform: scale(1);
     }
 }
 

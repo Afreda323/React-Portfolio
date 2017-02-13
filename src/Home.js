@@ -20,6 +20,11 @@ const Home = (props) => {
               Contact me
             </a>
             {props.recs}
+            <div className="git">
+              <p className={props.animClass}>
+                <a href="https://github.com/Afreda323/React-Portfolio" target="_blank">View source on GitHub</a>
+              </p>
+            </div>
           </div>
       </div>
     );

@@ -20,6 +20,26 @@ class App extends Component {
     this.handleModal = this.handleModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
+  //Route to proper component depending on url #
+  componentDidMount() {
+    document.querySelector('.loader').className = "loader loaded";
+    if (window.location.hash == '#work') {
+      document.querySelector('.workN').className= "workN active";
+      document.querySelector('.contactN').className= "contactN";
+      this.setState({rendered: 'Work', animClass: 'forwards'});
+      this.renderComp();
+    }else if (window.location.hash == '#contact') {
+      document.querySelector('.workN').className= "workN";
+      document.querySelector('.contactN').className= "contactN active";
+      this.setState({rendered: 'Contact', animClass: 'forwards'});
+      this.renderComp();
+    }else{
+      document.querySelector('.workN').className= "workN";
+      document.querySelector('.contactN').className= "contactN";
+      this.setState({rendered: 'Home', animClass: 'forwards'});
+      this.renderComp();
+    }
+  }
   renderRectangles(){
     return(
       <div>
@@ -51,6 +71,7 @@ class App extends Component {
         this.renderComp();
       }, 1000);
     }else if  (route === 'contact') {
+      window.location.hash == '#contact';
       document.querySelector('.workN').className= "workN";
       document.querySelector('.contactN').className= "contactN active";
       const self = this;
@@ -114,9 +135,9 @@ class App extends Component {
     return (
       <div>
         <div className={navClass}>
-          <a className="workN" href="#" onClick={() =>this.handleClick('work')}>Work</a>
+          <a className="workN" href="#Work" onClick={() =>this.handleClick('work')}>Work</a>
           <a href="#" className="logo" onClick={() => this.handleClick('home')}><img src="antlogo.svg" /></a>
-          <a className="contactN" href="#" onClick={() => this.handleClick('contact')}>Contact</a>
+          <a className="contactN" href="#Contact" onClick={() => this.handleClick('contact')}>Contact</a>
         </div>
         {this.renderComp()}
       </div>
