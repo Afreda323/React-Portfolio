@@ -28,10 +28,10 @@ const Contact = (props) =>{
   		        </a>
             </p>
             <div className="onSmall">
-              <a className={`btn ${props.animClass}`} onClick={() => props.handleClick('home')}>
+              <a href='/' className={`btn ${props.animClass}`} onClick={(e) => props.handleClick(e, '')}>
                 Go home
               </a>
-              <a className={`btn ${props.animClass}`} onClick={() => props.handleClick('work')}>
+              <a href='work' className={`btn ${props.animClass}`} onClick={(e) => props.handleClick(e, 'work')}>
                 My work
               </a>
             </div>

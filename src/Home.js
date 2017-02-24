@@ -13,10 +13,10 @@ const Home = (props) => {
             <p className={`${props.animClass}`}>I am a web developer located in <span className="blue">Charlotte, NC</span> and I am always looking into taking on new projects</p>
             <br />
             <br />
-            <a className={`btn ${props.animClass}`} onClick={() => props.handleClick('work')}>
+            <a href='/work' className={`btn ${props.animClass}`} onClick={(e) => props.handleClick(e,'work')}>
               My work
             </a>
-            <a className={`btn ${props.animClass}`} onClick={() => props.handleClick('contact')}>
+            <a href='/contact' className={`btn ${props.animClass}`} onClick={(e) => props.handleClick(e,'contact')}>
               Contact me
             </a>
             {props.recs}

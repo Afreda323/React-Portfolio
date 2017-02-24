@@ -33,11 +33,6 @@ class Work extends Component {
       self.setState({modalClass: 'hidden'});
     }, 200);
   }
-  //Changing active component
-  leave(route){
-    this.setState({clicked: false});
-    this.props.handleClick(route);
-  }
   //Is more button clicked
   renderButton(){
     if (this.state.more === false) {
@@ -56,7 +51,12 @@ class Work extends Component {
     if (this.state.more === false) {
       whatClass = 'pro';
       returned = projects.map((project) => {
-        return(<a key={project.id} onClick={() => this.handleModal(project.id)}>{project.name}</a>)
+        return(
+          <a
+            key={project.id}
+            onClick={() => this.handleModal(project.id)}>
+            {project.name}
+          </a>);
       });
     }else{
       whatClass = 'pers';
@@ -78,10 +78,16 @@ class Work extends Component {
               {this.renderButton()}
             </p>
             <div className="onSmall">
-              <a className={`btn ${this.props.animClass}`} onClick={() => this.leave('contact')}>
+              <a
+                href='contact'
+                className={`btn ${this.props.animClass}`}
+                onClick={(e) => this.props.handleClick(e, 'contact')}>
                 Contact me
               </a>
-              <a className={`btn ${this.props.animClass}`} onClick={() => this.leave('home')}>
+              <a
+                href='/'
+                className={`btn ${this.props.animClass}`}
+                onClick={(e) => this.props.handleClick(e, '')}>
                 Go home
               </a>
             </div>

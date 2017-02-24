@@ -143,7 +143,7 @@ a {
 
 /*NAV*/
 
-.nav {
+/*.nav {
   opacity: .8;
     position: absolute;
     z-index: 1111;
@@ -158,7 +158,9 @@ a {
     background: white;
     box-shadow: 3px 3px 22px -2px rgba(0, 0, 0, 0.75);
     transition: all .4s;
-    opacity: 0;
+}*/
+.nav{
+  display: none;
 }
 
 .nav a {
@@ -344,6 +346,7 @@ a {
     max-width: 1800px;
 }
 .modal hr{
+  margin-bottom: 20px;
   margin-left: 1% !important;
 }
 @media (min-width: 1800px) {
@@ -369,6 +372,8 @@ a {
 
 .portimg {
     width: 100%;
+    box-sizing: border-box;
+    border: 12px solid #0004ff;
 }
 
 .flexed {
@@ -404,6 +409,7 @@ a {
     }
     .portimg {
         margin: 10px 0;
+        border: 0;
     }
     .flexed {
         display: block;

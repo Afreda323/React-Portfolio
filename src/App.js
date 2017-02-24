@@ -20,26 +20,21 @@ class App extends Component {
     this.handleModal = this.handleModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
-  //Route to proper component depending on url #
+  //Route to proper component depending on url '/'
   componentDidMount() {
-    document.querySelector('.loader').className = "loader loaded";
-    if (window.location.hash == '#work') {
-      document.querySelector('.workN').className= "workN active";
-      document.querySelector('.contactN').className= "contactN";
+    let route = window.location.href.split("/").pop();
+    if (route == 'work') {
       this.setState({rendered: 'Work', animClass: 'forwards'});
       this.renderComp();
-    }else if (window.location.hash == '#contact') {
-      document.querySelector('.workN').className= "workN";
-      document.querySelector('.contactN').className= "contactN active";
+    }else if (route == 'contact') {
       this.setState({rendered: 'Contact', animClass: 'forwards'});
       this.renderComp();
     }else{
-      document.querySelector('.workN').className= "workN";
-      document.querySelector('.contactN').className= "contactN";
       this.setState({rendered: 'Home', animClass: 'forwards'});
       this.renderComp();
     }
   }
+  //Render the rectangular borders around sections
   renderRectangles(){
     return(
       <div>
@@ -60,37 +55,55 @@ class App extends Component {
   }
   //Handle the click of nav items
   //Take the passed route and render it to the DOM
-  handleClick(route){
+  handleClick(e, route){
+    e.preventDefault()
     this.setState({animClass: 'reverse', activeNav: route, clicked: false});
     if (route === 'work') {
-      document.querySelector('.workN').className= "workN active";
-      document.querySelector('.contactN').className= "contactN";
       const self = this;
       setTimeout(() => {
-        self.setState({rendered: 'Work', animClass: 'forwards'});
+        window.location.href = route;
+        self.setState({
+          rendered: 'Work',
+          animClass: 'forwards',
+        });
         this.renderComp();
-      }, 1000);
+      }, 800);
     }else if  (route === 'contact') {
-      window.location.hash == '#contact';
-      document.querySelector('.workN').className= "workN";
-      document.querySelector('.contactN').className= "contactN active";
       const self = this;
       setTimeout(() => {
-        self.setState({rendered: 'Contact', animClass: 'forwards'});
+        window.location.href = route;
+        self.setState({
+          rendered: 'Contact',
+          animClass: 'forwards',
+        });
         this.renderComp();
-      }, 1000);
-    }else if (route === 'home') {
-      document.querySelector('.workN').className= "workN";
-      document.querySelector('.contactN').className= "contactN";
+      }, 800);
+    }else{
       const self = this;
       setTimeout(() => {
-        self.setState({rendered: 'Home', animClass: 'forwards'});
+        window.location.href = '/';
+        self.setState({
+          rendered: 'Home',
+          animClass: 'forwards',
+        });
         this.renderComp();
-      }, 1000);
+      }, 800);
     }
   }
+
+  // Changing the title on page leave and enter, cming soon
+  //handleLeave(){
+  //   setTimeout(function () {
+  //     document.title = "Come Back.."
+  //   }, 500);
+  // }
+  // handleEnter(){
+  //   document.title = 'Anthony Freda | Developer';
+  // }
   //Run the DOM animations and hide the nav
   //Open Modal
+
+
   handleModal(){
     this.setState({animClass: 'reverse', hideNav: true});
   }
